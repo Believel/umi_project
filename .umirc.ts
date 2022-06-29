@@ -1,17 +1,35 @@
-import { defineConfig } from 'umi';
+import { defineConfig } from '@umijs/max';
 
 export default defineConfig({
+  antd: {},
+  access: {},
+  model: {},
+  initialState: {},
+  request: {},
   layout: {
-    name: 'Ant Design',
-    locale: true,
-    layout: 'side'
-  },
-  nodeModulesTransform: {
-    type: 'none',
+    title: '@umijs/max',
   },
   routes: [
-    { exact: true, path: '/', component: '@/pages/index' },
-    { exact: true, path: '/user', component: '@/pages/user' },
+    {
+      path: '/',
+      redirect: '/home',
+    },
+    {
+      name: '首页',
+      path: '/home',
+      component: './Home',
+    },
+    {
+      name: '权限演示',
+      path: '/access',
+      component: './Access',
+    },
+    {
+        name: ' CRUD 示例',
+        path: '/table',
+        component: './Table',
+    },
   ],
-  fastRefresh: {},
+  npmClient: 'pnpm',
 });
+
