@@ -40,8 +40,21 @@ export default defineConfig({
     {
         name: ' CRUD 示例',
         path: '/table',
-        component: './Table',
+        component: '@/pages/Table',
     },
+    {
+      name: "用户中心",
+      path: '/user',
+      component: './User',
+      // 配置路由组件的包装组件
+      // wrappers: ['@/wrappers/auth']
+    },
+    {
+      exact: true,
+      // 动态路由
+      path: 'posts/:postId',
+      component: '@/pages/posts/$postId'
+    }
   ],
   npmClient: 'pnpm',
 });
